@@ -1,0 +1,9 @@
+steps:
+# Build the single container image from the root Dockerfile
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/CloudCreators/monolith-service:$COMMIT_SHA', '.']
+  id: 'Build Monolith Service'
+
+# Push the single image to Artifact Registry
+images:
+- 'us-central1-docker.pkg.dev/$PROJECT_ID/CloudCreators/monolith-service:$COMMIT_SHA'

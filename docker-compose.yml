@@ -1,0 +1,29 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+      - "8000:8000"
+    environment:
+      MONGO_URI: "mongodb+srv://username:password@cluster.mongodb.net/myDB"
+      DB_NAME: "myDB"
+      FERNET_KEY: "gei3reBAcSgWqBH652H5c8ODY3gnZs3MpoBYzSI8g2k="
+      TBL_EnvironmentOnboarding: "environmentOnboarding"
+      TBL_triggers: "triggers"
+      TBL_StandardConfig: "standardConfig"
+      TBL_SignUp: "signupdata"
+      TBL_Costing: "Cost_Insights"
+      AZURE_CLIENT_ID: "d0078673-b3f3-4fa2-b369-5a29c26c1a53"
+      AZURE_TENANT_ID: "8fa6b091-8254-4747-bf4a-993b2f8b2b26"
+      AZURE_REDIRECT_URI: "http://localhost:8000/auth/callback"
+      AZURE_CLIENT_SECRET: ""
+      BIGQUERY_BILLING_TABLE: "dev-cl-homes-digital.gcp_billing_export.gcp_billing_export_resource_v1_01AD9A_690A5A_C3CA1D"
+
+    restart: unless-stopped
+
+volumes:
+  mongo_data:
+
+
+
+
